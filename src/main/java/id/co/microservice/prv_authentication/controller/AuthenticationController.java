@@ -27,7 +27,7 @@ public class AuthenticationController {
 		
 		Map<String, Object> response = authService.authenticationService(authenticationRequest);
 		if (response.get("exp") == null)
-			return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
 		else {
 			return new ResponseEntity<>(response, HttpStatus.OK);
 		}
