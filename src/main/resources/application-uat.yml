@@ -1,0 +1,9 @@
+server:
+  port : 11010
+        
+spring:
+  datasource:
+     type: com.zaxxer.hikari.HikariDataSource
+     jdbcUrl: jdbc:postgresql://34.133.20.149:5432/quecs
+     username: quecs
+     password: mysecretpassword
