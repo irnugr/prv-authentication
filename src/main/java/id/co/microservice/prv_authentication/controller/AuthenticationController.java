@@ -4,6 +4,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,9 +23,14 @@ public class AuthenticationController {
 	AuthenticationService authService;
 	
 	@PostMapping("/token-issuer")
-	public Map<String, Object> validateUserPassword(@RequestBody UserLoginRequest authenticationRequest) {
+	public ResponseEntity<Map<String, Object>> validateUserPassword(@RequestBody UserLoginRequest authenticationRequest) {
 		
-		return authService.authenticationService(authenticationRequest);
+		Map<String, Object> response = authService.authenticationService(authenticationRequest);
+		if (response.get("exp") == null)
+			return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
+		else {
+			return new ResponseEntity<>(response, HttpStatus.OK);
+		}
 	}
 	
 	@GetMapping("/jwks.json")
