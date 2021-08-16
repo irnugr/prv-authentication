@@ -96,7 +96,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	private RefreshTokenResponse refreshTokenBuilder(String username) {
 		
 		RefreshTokenResponse refreshToken = new RefreshTokenResponse();
-		Long exp = offsetFromNow(mMinutes);
+		Long exp = offsetFromNow(mMinutes+30);
 		
 		refreshToken.setSub(username);
 		refreshToken.setAud("http://10.128.0.2:8080");
