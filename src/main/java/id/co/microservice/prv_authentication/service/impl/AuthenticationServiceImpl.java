@@ -37,7 +37,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 	@Autowired
 	UsersRepository usersRepository;
 	
-	private static final float mMinutes = 30;
+	private static final float mMinutes = 15;
 	private UUID uuid = UUID.randomUUID();
 
 	@Override
@@ -84,8 +84,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		Long iat = numericDate.getValue();
 		
 		accessToken.setSub(username);
-		accessToken.setAud("http://10.128.0.2:8080");
-		accessToken.setIss("http://10.128.0.2:12010");
+		accessToken.setAud("core-wfm");
+		accessToken.setIss("prv-apps");
 		accessToken.setJti(uuid);
 		accessToken.setIat(iat);
 		accessToken.setExp(exp);
@@ -99,8 +99,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		Long exp = offsetFromNow(mMinutes+30);
 		
 		refreshToken.setSub(username);
-		refreshToken.setAud("http://10.128.0.2:8080");
-		refreshToken.setIss("http://10.128.0.2:12010");
+		refreshToken.setAud("core-wfm");
+		refreshToken.setIss("prv-apps");
 		refreshToken.setJti(uuid);
 		refreshToken.setExp(exp);
 		
