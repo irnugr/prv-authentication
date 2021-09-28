@@ -21,6 +21,7 @@
   	<nimbus-jose.version>7.3</nimbus-jose.version>
   	<logstash.logback.encoder>6.1</logstash.logback.encoder>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <prv-commons.version>0.0.1-SNAPSHOT</prv-commons.version>
   </properties>
 
   	<dependencies>
@@ -84,6 +85,11 @@
 			<groupId>net.logstash.logback</groupId>
 			<artifactId>logstash-logback-encoder</artifactId>
 			<version>${logstash.logback.encoder}</version>
+		</dependency>
+		<dependency>
+			<groupId>id.co.microservice</groupId>
+			<artifactId>prv-commons</artifactId>
+			<version>${prv-commons.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
