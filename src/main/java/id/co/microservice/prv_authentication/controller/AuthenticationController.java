@@ -34,8 +34,12 @@ public class AuthenticationController extends AbstractController {
 		
 		String response = authService.authenticate(authenticationRequest);
 		
-		httpServletResponse.setStatus(HttpServletResponse.SC_OK);
-		//return new ResponseEntity<>(response, HttpStatus.OK);
+		if (response.isEmpty()) {
+			httpServletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+		} else {
+			httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+		}
+		
 		return this.buildResponse(requestId, response, HttpStatus.OK.value(), HttpStatus.OK.name(), "");
 	}
 

@@ -4,6 +4,6 @@ server:
 spring:
   datasource:
      type: com.zaxxer.hikari.HikariDataSource
-     jdbcUrl: jdbc:postgresql://34.133.20.149:5432/quecs
+     jdbcUrl: jdbc:postgresql://10.138.0.2:5432/quecs
      username: quecs
      password: mysecretpassword
