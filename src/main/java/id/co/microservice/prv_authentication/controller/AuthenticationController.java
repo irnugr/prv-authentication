@@ -33,14 +33,20 @@ public class AuthenticationController extends AbstractController {
 		requestId = requestId == null ? RequestIDGenerator.getID() : requestId;
 		
 		String response = authService.authenticate(authenticationRequest);
+		int httpStat = 0;
+		String httpDesc = null;
 		
-		if (response.isEmpty()) {
+		if (response == null) {
+			httpStat = HttpStatus.UNAUTHORIZED.value();
+			httpDesc = HttpStatus.UNAUTHORIZED.name();
 			httpServletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 		} else {
+			httpStat = HttpStatus.OK.value();
+			httpDesc = HttpStatus.OK.name();
 			httpServletResponse.setStatus(HttpServletResponse.SC_OK);
 		}
 		
-		return this.buildResponse(requestId, response, HttpStatus.OK.value(), HttpStatus.OK.name(), "");
+		return this.buildResponse(requestId, response, httpStat, httpDesc, "");
 	}
 
 }
