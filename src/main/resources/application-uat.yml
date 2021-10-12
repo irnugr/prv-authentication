@@ -4,6 +4,6 @@ server:
 spring:
   datasource:
      type: com.zaxxer.hikari.HikariDataSource
-     jdbcUrl: jdbc:postgresql://10.138.0.2:5432/quecs
-     username: quecs
-     password: mysecretpassword
+     jdbcUrl: ENC(8pDW9+HlthJ8sm5y//jv89A75CH9yDURufWoCqWvbl+msk3R56zGsrImuSkZjloK)
+     username: ENC(9dhe9+K+ykijQiYE9O5NsQ==)
+     password: ENC(h6u2uZ0Y71nC6Do6goDabnxshB/GazSTx11d3RzotQI=)

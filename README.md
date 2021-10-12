@@ -13,4 +13,4 @@ mvn clean package
 mvn spring-boot:run -Dspring-boot.run.profiles={dev|sit|uat|prd}
 
 ## Command to start the service using java
-java -Dspring.profiles.active={dev|sit|uat|prd} -jar {jarfile}
+java -Dspring.profiles.active={dev|sit|uat|prd} -Djasypt.encryptor.algorithm={Pass The Algorithm} -Djasypt.encryptor.iv-generator-classname=org.jasypt.iv.NoIvGenerator -Djasypt.encryptor.password={Pass Your Secret Here} -jar {jarfile}
