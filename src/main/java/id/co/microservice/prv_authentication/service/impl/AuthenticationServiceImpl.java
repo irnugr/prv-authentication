@@ -36,7 +36,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 		UsersEntity usersEntity = usersRepository.getUsersByUsername(userLoginRequest.getUsername());
 		String response = null;
 		
-		if (usersEntity.getUsername() != null) {
+		if (usersEntity != null) {
 			
 			Boolean passwordCorrect =  doPasswordsMatch(userLoginRequest.getPassword(), usersEntity.getPassword());
 			
